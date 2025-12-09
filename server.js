@@ -136,6 +136,10 @@ app.put('/api/products/:id', (req, res) => {
     return res.status(400).json({ error: 'Quantity is required' });
   }
   
+  if (quantity < 0) {
+    return res.status(400).json({ error: 'Quantity cannot be negative' });
+  }
+  
   db.run(
     'UPDATE products SET quantity = ? WHERE id = ?',
     [quantity, req.params.id],
@@ -175,7 +179,7 @@ app.listen(PORT, () => {
 });
 
 // Graceful shutdown
-process.on('SIGINT', () => {
+const shutdown = () => {
   db.close((err) => {
     if (err) {
       console.error('Error closing database:', err);
@@ -184,4 +188,7 @@ process.on('SIGINT', () => {
     }
     process.exit(0);
   });
-});
+};
+
+process.on('SIGINT', shutdown);
+process.on('SIGTERM', shutdown);
