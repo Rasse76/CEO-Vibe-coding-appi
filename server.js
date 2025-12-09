@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
 
@@ -8,7 +7,7 @@ const PORT = 3000;
 const DB_FILE = path.join(__dirname, 'database.json');
 
 // Middleware
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(express.static('public'));
 
 // Helper function to read database
@@ -55,14 +54,33 @@ app.get('/api/products/:id', (req, res) => {
 
 // Add new product
 app.post('/api/products', (req, res) => {
+  // Validate required fields
+  if (!req.body.name || !req.body.name.trim()) {
+    return res.status(400).json({ error: 'Product name is required' });
+  }
+  if (!req.body.category || !req.body.category.trim()) {
+    return res.status(400).json({ error: 'Product category is required' });
+  }
+  
   const products = readDatabase();
+  const quantity = parseInt(req.body.quantity);
+  const price = parseFloat(req.body.price);
+  
+  // Validate numeric fields
+  if (isNaN(quantity) || quantity < 0) {
+    return res.status(400).json({ error: 'Quantity must be a valid non-negative number' });
+  }
+  if (isNaN(price) || price < 0) {
+    return res.status(400).json({ error: 'Price must be a valid non-negative number' });
+  }
+  
   const newProduct = {
     id: products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1,
-    name: req.body.name,
-    category: req.body.category,
-    quantity: parseInt(req.body.quantity) || 0,
-    price: parseFloat(req.body.price) || 0,
-    description: req.body.description || ''
+    name: req.body.name.trim(),
+    category: req.body.category.trim(),
+    quantity: quantity,
+    price: price,
+    description: req.body.description ? req.body.description.trim() : ''
   };
   
   products.push(newProduct);
@@ -76,11 +94,30 @@ app.post('/api/products', (req, res) => {
 
 // Update product
 app.put('/api/products/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  if (isNaN(id) || id < 1) {
+    return res.status(400).json({ error: 'Invalid product ID' });
+  }
+  
   const products = readDatabase();
-  const index = products.findIndex(p => p.id === parseInt(req.params.id));
+  const index = products.findIndex(p => p.id === id);
   
   if (index === -1) {
     return res.status(404).json({ error: 'Product not found' });
+  }
+  
+  // Validate numeric fields if provided
+  if (req.body.quantity !== undefined) {
+    const quantity = parseInt(req.body.quantity);
+    if (isNaN(quantity) || quantity < 0) {
+      return res.status(400).json({ error: 'Quantity must be a valid non-negative number' });
+    }
+  }
+  if (req.body.price !== undefined) {
+    const price = parseFloat(req.body.price);
+    if (isNaN(price) || price < 0) {
+      return res.status(400).json({ error: 'Price must be a valid non-negative number' });
+    }
   }
   
   products[index] = {
@@ -101,8 +138,13 @@ app.put('/api/products/:id', (req, res) => {
 
 // Delete product
 app.delete('/api/products/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  if (isNaN(id) || id < 1) {
+    return res.status(400).json({ error: 'Invalid product ID' });
+  }
+  
   const products = readDatabase();
-  const index = products.findIndex(p => p.id === parseInt(req.params.id));
+  const index = products.findIndex(p => p.id === id);
   
   if (index === -1) {
     return res.status(404).json({ error: 'Product not found' });

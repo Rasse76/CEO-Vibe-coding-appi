@@ -137,7 +137,7 @@ function renderProducts(productsToRender) {
                     <span class="product-category">${escapeHtml(product.category)}</span>
                 </div>
             </div>
-            <p class="product-description">${escapeHtml(product.description || 'No description')}</p>
+            <p class="product-description">${escapeHtml(product.description || '')}</p>
             <div class="product-info">
                 <div class="info-item">
                     <div class="info-label">Quantity</div>
