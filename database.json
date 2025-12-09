@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop Computer",
+    "category": "Electronics",
+    "quantity": 15,
+    "price": 899.99,
+    "description": "High-performance laptop for business use"
+  },
+  {
+    "id": 2,
+    "name": "Wireless Mouse",
+    "category": "Electronics",
+    "quantity": 50,
+    "price": 24.99,
+    "description": "Ergonomic wireless mouse"
+  },
+  {
+    "id": 3,
+    "name": "Office Chair",
+    "category": "Furniture",
+    "quantity": 25,
+    "price": 199.99,
+    "description": "Comfortable ergonomic office chair"
+  },
+  {
+    "id": 4,
+    "name": "Standing Desk",
+    "category": "Furniture",
+    "quantity": 12,
+    "price": 449.99,
+    "description": "Adjustable height standing desk"
+  },
+  {
+    "id": 5,
+    "name": "USB-C Cable",
+    "category": "Electronics",
+    "quantity": 100,
+    "price": 9.99,
+    "description": "High-speed USB-C charging cable"
+  },
+  {
+    "id": 6,
+    "name": "Notebook Set",
+    "category": "Office Supplies",
+    "quantity": 75,
+    "price": 12.99,
+    "description": "Pack of 5 premium notebooks"
+  },
+  {
+    "id": 7,
+    "name": "Printer Paper",
+    "category": "Office Supplies",
+    "quantity": 200,
+    "price": 19.99,
+    "description": "500 sheets of A4 paper"
+  },
+  {
+    "id": 8,
+    "name": "Mechanical Keyboard",
+    "category": "Electronics",
+    "quantity": 30,
+    "price": 79.99,
+    "description": "RGB backlit mechanical keyboard"
+  },
+  {
+    "id": 9,
+    "name": "Monitor 27 inch",
+    "category": "Electronics",
+    "quantity": 20,
+    "price": 299.99,
+    "description": "4K UHD monitor with IPS panel"
+  },
+  {
+    "id": 10,
+    "name": "Desk Lamp",
+    "category": "Furniture",
+    "quantity": 40,
+    "price": 34.99,
+    "description": "LED desk lamp with adjustable brightness"
+  },
+  {
+    "id": 11,
+    "name": "File Cabinet",
+    "category": "Furniture",
+    "quantity": 18,
+    "price": 149.99,
+    "description": "3-drawer metal file cabinet"
+  },
+  {
+    "id": 12,
+    "name": "Whiteboard",
+    "category": "Office Supplies",
+    "quantity": 22,
+    "price": 89.99,
+    "description": "Large magnetic whiteboard"
+  },
+  {
+    "id": 13,
+    "name": "Webcam HD",
+    "category": "Electronics",
+    "quantity": 35,
+    "price": 59.99,
+    "description": "1080p HD webcam with microphone"
+  },
+  {
+    "id": 14,
+    "name": "Headset",
+    "category": "Electronics",
+    "quantity": 45,
+    "price": 69.99,
+    "description": "Noise-canceling wireless headset"
+  },
+  {
+    "id": 15,
+    "name": "Desk Organizer",
+    "category": "Office Supplies",
+    "quantity": 60,
+    "price": 14.99,
+    "description": "Multi-compartment desk organizer"
+  },
+  {
+    "id": 16,
+    "name": "External Hard Drive",
+    "category": "Electronics",
+    "quantity": 28,
+    "price": 89.99,
+    "description": "1TB portable external hard drive"
+  },
+  {
+    "id": 17,
+    "name": "Ergonomic Footrest",
+    "category": "Furniture",
+    "quantity": 33,
+    "price": 39.99,
+    "description": "Adjustable ergonomic footrest"
+  },
+  {
+    "id": 18,
+    "name": "Stapler Set",
+    "category": "Office Supplies",
+    "quantity": 85,
+    "price": 7.99,
+    "description": "Heavy-duty stapler with staples"
+  },
+  {
+    "id": 19,
+    "name": "Wireless Charger",
+    "category": "Electronics",
+    "quantity": 42,
+    "price": 29.99,
+    "description": "Fast wireless charging pad"
+  },
+  {
+    "id": 20,
+    "name": "Bookshelf",
+    "category": "Furniture",
+    "quantity": 15,
+    "price": 129.99,
+    "description": "5-tier wooden bookshelf"
+  }
+]
